@@ -13,11 +13,11 @@ class Inventory:
                 report = csv.DictReader(file)
                 report_list = [object_report for object_report in report]
                 return cls.type_data(type, report_list)
-        elif path[-4] == "json":
+        elif path[-4:] == "json":
             with open(path) as file:
                 report_list = json.load(file)
                 return cls.type_data(type, report_list)
-        elif path[-4] == ".xml":
+        elif path[-4:] == ".xml":
             with open(path, "r") as file:
                 report = file.read()
                 report_list = BeautifulSoup(report, "xml")
