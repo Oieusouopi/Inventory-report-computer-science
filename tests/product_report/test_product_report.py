@@ -2,8 +2,7 @@ from inventory_report.inventory.product import Product
 
 
 def test_relatorio_produto():
-    product = Product
-    (
+    product = Product(
         1,
         "Nicotine Polacrilex",
         "Target Corporation",
