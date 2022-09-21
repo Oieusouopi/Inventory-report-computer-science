@@ -12,5 +12,7 @@ def test_relatorio_produto():
         "instrucao 1",
     )
     assert product.__repr__() == (
-            "O produto Nicotine Polacrilex fabricado em 2021-02-18 por Target Corporation com validade até 2023-09-17 precisa ser armazenado instrucao 1."
-         )
+        "O produto Nicotine Polacrilex"
+        + " fabricado em 2021-02-18 por Target Corporation"
+        + " com validade até 2023-09-17 precisa ser armazenado instrucao 1."
+    )
