@@ -1,8 +1,8 @@
 import csv
 import json
-from bs4 import BeautifulSoup
-from reports.simple_report import SimpleReport
-from reports.complete_report import CompleteReport
+import xmltodict
+from inventory_report.reports.simple_report import SimpleReport
+from inventory_report.reports.complete_report import CompleteReport
 
 
 class Inventory:
@@ -20,7 +20,7 @@ class Inventory:
         elif path[-4:] == ".xml":
             with open(path, "r") as file:
                 report = file.read()
-                report_list = BeautifulSoup(report, "xml")
+                report_list = xmltodict.parse(report)["dataset"]["record"]                
                 return cls.type_data(type, report_list)
         else:
             raise "Error arquivo invalido"
