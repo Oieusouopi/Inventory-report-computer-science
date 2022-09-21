@@ -1,5 +1,5 @@
 from inventory_report.importer.importer import Importer
-from bs4 import BeautifulSoup
+import xmltodict
 
 
 class XmlImporter(Importer):
@@ -7,5 +7,5 @@ class XmlImporter(Importer):
     def import_data(cls, path):
         with open(path, "r") as file:
             report = file.read()
-            report_list = BeautifulSoup(report, "xml")
+            report_list = xmltodict.parse(report)["dataset"]["record"]
             return report_list
