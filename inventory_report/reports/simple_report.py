@@ -20,6 +20,7 @@ class SimpleReport:
 
         companies = [info["nome_da_empresa"] for info in list]
         companies_most_product = Counter(companies).most_common()[0][0]
+
         return (
             f"Data de fabricação mais antiga: {most_old_fabrication_product}\n"
             f"Data de validade mais próxima: {recent_date_validate}\n"
