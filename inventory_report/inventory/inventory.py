@@ -9,14 +9,11 @@ class Inventory:
     @classmethod
     def import_data(cls, path, type):
         if path[-4:] == ".csv":
-            report_list = CsvImporter.import_data(path)
-            return cls.type_data(type, report_list)
+            return cls.type_data(type, CsvImporter.import_data(path))
         elif path[-4:] == "json":
-            report_list = JsonImporter.import_data(path)
-            return cls.type_data(type, report_list)
+            return cls.type_data(type, JsonImporter.import_data(path))
         elif path[-4:] == ".xml":
-            report_list = XmlImporter.import_data(path)
-            return cls.type_data(type, report_list)
+            return cls.type_data(type, XmlImporter.import_data(path))
         else:
             raise "Arquivo inválido"
 
