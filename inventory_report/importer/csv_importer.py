@@ -5,7 +5,10 @@ import csv
 class CsvImporter(Importer):
     @classmethod
     def import_data(cls, path):
-        with open(path) as file:
-            report = csv.DictReader(file)
-            report_list = [object_report for object_report in report]
-            return report_list
+        if path[-4:] == ".csv":
+            with open(path) as file:
+                report = csv.DictReader(file)
+                report_list = [object_report for object_report in report]
+                return report_list
+        else:
+            raise ValueError("Arquivo inválido")
